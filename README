@@ -1,0 +1,8 @@
+
+These are crt{1,n,i,begin,end} replacement files from NetBSD via the ELLCC compiler, re-packaged for simple
+stand-alone installation.
+
+The purpose of these files is to replace the functionality of libgcc in Linux systems where you want to work
+with a self-hosting Clang environment.
+
+
