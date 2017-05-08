@@ -1,8 +1,27 @@
+########BACKGROUND########
 
-These are crt{1,n,i,begin,end} replacement files from NetBSD via the ELLCC compiler, re-packaged for simple
-stand-alone installation.
+These are crt{1,n,i,begin,end} replacement files from NetBSD [1] via FreeBSD
+and the ELLCC compiler [2], re-packaged for simple stand-alone installation.
 
-The purpose of these files is to replace the functionality of libgcc in Linux systems where you want to work
-with a self-hosting Clang environment.
+[1] http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/csu/arch/?only_with_tag=MAIN
+[2] http://ellcc.org/viewvc/svn/ellcc/trunk/libecc/src/musl/crt/
+[2] http://ellcc.org/viewvc/svn/ellcc/trunk/libecc/src/musl/arch/
+
+########WARNING########
+
+The purpose of these files is to replace the functionality of libgcc in Linux systems where
+you want to work with a self-hosting Clang environment. Because of this, these crt files
+should only be installed if you want to get rid of gcc/libgcc.
+If you for some reason want both these crt files and gcc installed, make sure that
+libgcc and the crt files never are in the same LDPATH, because linking will fail due to
+duplicate symbols.
 
 
+########BUILDING########
+
+To build, for example for x86_64 in directory /usr/lib
+simply execute TARGET=x86_64 DEST="/usr/lib" ./build.sh
+
+########LICENSE########
+
+All files are under a BSD license, and defined in the header of each file.

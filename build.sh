@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DEST="/usr/lib"
-_ARCH=$(uname -m)
+#DEST="/usr/lib"
+#TARGET=$(uname -m)
 
 clang -fPIC -c crtbegin.c -o "$DEST"/crtbegin.o
 cp "$DEST"/crtbegin.o "$DEST"/crtbeginS.o
@@ -16,7 +16,7 @@ clang -c crtn.c -o "$DEST"/crtn.o
 
 #crt_arch.h is architecture-dependent
 
-cp ${_ARCH}/crt_arch.h .
+cp ${TARGET}/crt_arch.h .
 
 clang -fPIC -c crt1.c -o "$DEST"/crt1.o
 
